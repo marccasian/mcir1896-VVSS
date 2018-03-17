@@ -1,15 +1,13 @@
 package salariati.repository.implementations;
 
+import salariati.exception.EmployeeException;
+import salariati.model.Employee;
+import salariati.repository.interfaces.EmployeeRepositoryInterface;
+import salariati.validator.EmployeeValidator;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import salariati.exception.EmployeeException;
-
-import salariati.model.Employee;
-
-import salariati.repository.interfaces.EmployeeRepositoryInterface;
-import salariati.validator.EmployeeValidator;
 
 public class EmployeeImpl implements EmployeeRepositoryInterface {
 	
@@ -22,12 +20,21 @@ public class EmployeeImpl implements EmployeeRepositoryInterface {
 			BufferedWriter bw = null;
 			try {
 				bw = new BufferedWriter(new FileWriter(employeeDBFile, true));
+				for (Employee e : this.getEmployeeList()){
+					if (e.getCnp() == employee.getCnp()){
+						throw new EmployeeException("Employee already in system");
+					}
+				}
+
 				bw.write(employee.toString());
 				bw.newLine();
 				bw.close();
 				return true;
 			} catch (IOException e) {
+				System.out.println("Error occurred while trying to add new employee");
 				e.printStackTrace();
+			} catch (EmployeeException e) {
+				System.out.println(e.getMessage());
 			}
 		}
 		return false;
@@ -59,6 +66,7 @@ public class EmployeeImpl implements EmployeeRepositoryInterface {
 				try {
 					employee = Employee.getEmployeeFromString(line, counter);
 					employeeList.add(employee);
+					counter += 1;
 				} catch(EmployeeException ex) {
 					System.err.println("Error while reading: " + ex.toString());
 				}

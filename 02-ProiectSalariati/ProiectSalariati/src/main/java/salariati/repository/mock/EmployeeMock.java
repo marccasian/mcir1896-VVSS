@@ -1,13 +1,12 @@
 package salariati.repository.mock;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import salariati.enumeration.DidacticFunction;
-
 import salariati.model.Employee;
 import salariati.repository.interfaces.EmployeeRepositoryInterface;
 import salariati.validator.EmployeeValidator;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeeMock implements EmployeeRepositoryInterface {
 
@@ -19,12 +18,12 @@ public class EmployeeMock implements EmployeeRepositoryInterface {
 		employeeValidator = new EmployeeValidator();
 		employeeList = new ArrayList<Employee>();
 		
-		Employee Ionel   = new Employee("Pacuraru", "1234567890876", DidacticFunction.ASISTENT, "2500");
-		Employee Mihai   = new Employee("Dumitrescu", "1234567890876", DidacticFunction.LECTURER, "2500");
-		Employee Ionela  = new Employee("Ionescu", "1234567890876", DidacticFunction.LECTURER, "2500");
-		Employee Mihaela = new Employee("Pacuraru", "1234567890876", DidacticFunction.ASISTENT, "2500");
-		Employee Vasile  = new Employee("Georgescu", "1234567890876", DidacticFunction.TEACHER,  "2500");
-		Employee Marin   = new Employee("Puscas", "1234567890876", DidacticFunction.TEACHER,  "2500");
+		Employee Ionel   = new Employee("Pacuraru", "1961207015563", DidacticFunction.ASISTENT, 2500.0);
+		Employee Mihai   = new Employee("Dumitrescu", "1961207015563", DidacticFunction.LECTURER, 2500.0);
+		Employee Ionela  = new Employee("Ionescu", "1961207015563", DidacticFunction.LECTURER, 2500.0);
+		Employee Mihaela = new Employee("Pacuraru", "1961207015563", DidacticFunction.ASISTENT, 2500.0);
+		Employee Vasile  = new Employee("Georgescu", "1961207015563", DidacticFunction.TEACHER,  2500.0);
+		Employee Marin   = new Employee("Puscas", "1961207015563", DidacticFunction.TEACHER,  2500.0);
 		
 		employeeList.add( Ionel );
 		employeeList.add( Mihai );

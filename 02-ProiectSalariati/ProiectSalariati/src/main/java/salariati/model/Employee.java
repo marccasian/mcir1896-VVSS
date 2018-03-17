@@ -16,7 +16,7 @@ public class Employee {
 	private DidacticFunction function;
 	
 	/** The salary of the employee */
-	private String salary;
+	private Double salary;
 	
 	/**
 	 * Default constructor for employee
@@ -25,13 +25,13 @@ public class Employee {
 		this.lastName  = "";
 		this.cnp       = "";
 		this.function  = DidacticFunction.ASISTENT;
-		this.salary    = "";
+		this.salary    = 0.0;
 	}
 	
 	/**
 	 * Constructor with fields for employee
 	 */
-	public Employee(String lastName, String cnp, DidacticFunction function, String salary) {
+	public Employee(String lastName, String cnp, DidacticFunction function, Double salary) {
 		this.lastName  = lastName;
 		this.cnp       = cnp;
 		this.function  = function;
@@ -89,7 +89,7 @@ public class Employee {
 	/**
 	 * Getter for the employee salary
 	 */
-	public String getSalary() {
+	public Double getSalary() {
 		return salary;
 	}
 
@@ -98,7 +98,7 @@ public class Employee {
 	 * 
 	 * @param salary the salary to be set
 	 */
-	public void setSalary(String salary) {
+	public void setSalary(Double salary) {
 		this.salary = salary;
 	}
 	
@@ -139,7 +139,7 @@ public class Employee {
 	 * @return if the given line is valid returns the corresponding Employee
 	 * @throws EmployeeException
 	 */
-	public Employee getEmployeeFromString(String _employee, int line) throws EmployeeException {
+	public static Employee getEmployeeFromString(String _employee, int line) throws EmployeeException {
 		Employee employee = new Employee();
 		
 		String[] attributes = _employee.split("[;]");
@@ -158,7 +158,7 @@ public class Employee {
 			if(attributes[3].equals("TEACHER"))
 				employee.setFunction(DidacticFunction.TEACHER);
 			
-			employee.setSalary(attributes[4]);
+			employee.setSalary(Double.parseDouble(attributes[4]));
 			
 			if( !validator.isValid(employee) ) {
 				throw new EmployeeException("Invalid line at: " + line);

@@ -22,14 +22,14 @@ public class StartApp {
 			System.out.println(_employee.toString());
 		System.out.println("-----------------------------------------");
 		
-		Employee employee = new Employee("LastName", "1234567894321", DidacticFunction.ASISTENT, "2500");
+		Employee employee = new Employee("LastName", "1234567894321", DidacticFunction.ASISTENT, 2500.0);
 		employeeController.addEmployee(employee);
 		
 		for(Employee _employee : employeeController.getEmployeesList())
 			System.out.println(_employee.toString());
 		
 		EmployeeValidator validator = new EmployeeValidator();
-		System.out.println( validator.isValid(new Employee("LastName", "1234567894322", DidacticFunction.TEACHER, "3400")) );
+		System.out.println( validator.isValid(new Employee("LastName", "1234567894322", DidacticFunction.TEACHER, 3400.0)) );
 		
 	}
 
