@@ -41,16 +41,6 @@ public class EmployeeMock implements EmployeeRepositoryInterface {
 		}
 		return false;
 	}
-	
-	@Override
-	public void deleteEmployee(Employee employee) {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void modifyEmployee(Employee oldEmployee, Employee newEmployee) {
-		// TODO Auto-generated method stub
-	}
 
 	@Override
 	public List<Employee> getEmployeeList() {
@@ -58,9 +48,13 @@ public class EmployeeMock implements EmployeeRepositoryInterface {
 	}
 
 	@Override
-	public List<Employee> getEmployeeByCriteria(String criteria) {
-		// TODO Auto-generated method stub
+	public List<Employee> getEmployeeByCriteria() {
 		return null;
+	}
+
+	@Override
+	public void modifyEmployeeDidacticFunction(DidacticFunction d, int i) {
+
 	}
 
 }
