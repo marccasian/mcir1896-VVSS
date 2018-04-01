@@ -37,15 +37,24 @@ public class StartApp {
 			}
 			else if (number == 1){
 				try {
+					System.out.println("Name:");
 					String name = bufferedReader.readLine();
+					System.out.println("CNP:");
 					String cnp = bufferedReader.readLine();
+					System.out.println("Function(CONF | ASSISTENT | LECTURER | TEACHER):");
 					String function = bufferedReader.readLine();
+					System.out.println("Salary:");
 					String salary = bufferedReader.readLine();
 					DidacticFunction f;
 					Double sal = Double.parseDouble(salary);
 					f = get_did_fct(function);
 					Boolean b = employeeController.addEmployee(new Employee(name,cnp,f,sal));
                     System.out.println(b);
+                    if (b){
+						System.out.println("Successfully added employee");
+					}else{
+						System.out.println("Failed to add employee");
+					}
 				} catch (IOException e) {
 					e.printStackTrace();
 				} catch (EmployeeException e) {
@@ -93,7 +102,7 @@ public class StartApp {
 
 	private static DidacticFunction get_did_fct(String funct) throws EmployeeException {
 		DidacticFunction f;
-		if(funct.equals("ASISTENT"))
+		if(funct.equals("ASSISTENT"))
             f = DidacticFunction.ASISTENT;
         else if(funct.equals("LECTURER"))
             f = DidacticFunction.LECTURER;

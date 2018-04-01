@@ -51,6 +51,8 @@ public class EmployeeFieldsTest {
 		assertFalse(employeeValidator.isValid(employee));
 		employee.setCnp("ty1234s,.t");
 		assertFalse(employeeValidator.isValid(employee));
+		employee.setCnp("");
+		assertFalse(employeeValidator.isValid(employee));
 	}
 	
 	@Test
