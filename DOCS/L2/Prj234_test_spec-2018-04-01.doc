@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>testspec Prj234 - mcir1896_BBT</title>
+<link type="text/css" rel="stylesheet" href="https://www.scs.ubbcluj.ro/testlink/gui/themes/default/css/tl_documents.css" />
+<style type="text/css" media="print">.notprintable { display:none;}</style>
+</head>
+<body>
+<div>
+<div style="float:right;">TestLink Community [configure $tlCfg-&gt;document_generator-&gt;company_name]</div>
+<div>&nbsp;</div><hr />
+<p style="text-align: center;"><img alt="TestLink logo" title="configure using $tlCfg->document_generator->company_logo" height="53" src="https://www.scs.ubbcluj.ro/testlink/gui/themes/default/images/tl-logo-transparent-25.png" /></div>
+<div class="doc_title"><p>Test Specification</p></div>
+<div class="doc_title" style="text-align:left;margin: auto;"><p>Test Project: Prj234<br>Test Suite: Prj234 - mcir1896_BBT</p></div>
+<div class="summary"><p id="printedby">Printed by TestLink on 01/04/2018</p></div>
+<div class="pagefooter" id="copyright">2012 &copy; TestLink Community</div>
+<h1 class="general" style="page-break-before: always">Table Of Contents</h1><div class="toc"><b><p style="padding-left: 20px;"><a href="#toc_1">1. mcir1896_BBT</a></p></b>
+<p style="padding-left: 45px;"><a href="#toc_tc16393">Prj234-58: BBT_ECP_valid</a></p><p style="padding-left: 45px;"><a href="#toc_tc16401">Prj234-61: BBT_BVA_nonvalid</a></p><p style="padding-left: 45px;"><a href="#toc_tc16407">Prj234-62: BBT_ECP_nonvalid_1</a></p><p style="padding-left: 45px;"><a href="#toc_tc16414">Prj234-63: BBT_BVA_valid_1</a></p></div><h1 class="doclevel" >Scope</h1>
+<div class="txtlevel"><p>
+	Project for group 234.</p></div>
+ <br/><a name='toc_1'></a>
+<h1 class='doclevel'>1. Test Suite : mcir1896_BBT</h1>
+<a name="toc_tc16393"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="3">Test Case Prj234-58: BBT_ECP_valid</th></tr>
+<tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="2">mcir1896</td></tr>
+<tr><td colspan="3"><span class="label">Summary:</span><br /><p>
+	Input data:</p>
+<p>
+	Salariat:</p>
+<p>
+	Name: &quot;Casian&quot;</p>
+<p>
+	CNP: &quot;1961207015563&quot;</p>
+<p>
+	Didactic function: &quot;CONF&quot;</p>
+<p>
+	Salary: 123.98</p>
+<p>
+	Expected output: &quot;Successfully added employee&quot;</p>
+</td></tr><tr><td colspan="3"><span class="label">Preconditions:</span><br /><p>
+	Salariat:&nbsp;</p>
+<p>
+	Name: string, not empty (only [a-zA-Z]), at least 3 charachters</p>
+<p>
+	CNP: string, non-empty, VALID CNP check: https://ro.wikipedia.org/wiki/Cod_numeric_personal</p>
+<p>
+	Didactic function: string, one of: CONF, ASSISTENT, LECTURER, TEACHER</p>
+<p>
+	Salary: double, &gt; 0</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="2">Manual</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="2"></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="2">Medium</td></tr>
+<tr><td colspan="3"></td></tr><tr><td > Name of the test method:</td><td  colspan = "2" ></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="2">mcir1896_Req01:  Lab02<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Keywords:</span><td colspan="2">&nbsp;None<br></td></tr>
+</table>
+</div>
+<a name="toc_tc16401"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="3">Test Case Prj234-61: BBT_BVA_nonvalid</th></tr>
+<tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="2">mcir1896</td></tr>
+<tr><td colspan="3"><span class="label">Summary:</span><br /><div>
+	Input data:</div>
+<div>
+	&nbsp;</div>
+<div>
+	Salariat:</div>
+<div>
+	&nbsp;</div>
+<div>
+	Name: &quot;Casian&quot;</div>
+<div>
+	&nbsp;</div>
+<div>
+	CNP: &quot;1961207015563&quot;</div>
+<div>
+	&nbsp;</div>
+<div>
+	Didactic function: &quot;CONF&quot;</div>
+<div>
+	&nbsp;</div>
+<div>
+	Salary: -123.98</div>
+<div>
+	&nbsp;</div>
+<div>
+	Expected output: &quot;Failed to add employee&quot;</div>
+<div>
+	&nbsp;</div>
+</td></tr><tr><td colspan="3"><span class="label">Preconditions:</span><br /><div>
+	Salariat:&nbsp;</div>
+<div>
+	&nbsp;</div>
+<div>
+	Name: string, not empty (only [a-zA-Z]), at least 3 charachters</div>
+<div>
+	&nbsp;</div>
+<div>
+	CNP: string, non-empty, VALID CNP check: https://ro.wikipedia.org/wiki/Cod_numeric_personal</div>
+<div>
+	&nbsp;</div>
+<div>
+	Didactic function: string, one of: CONF, ASSISTENT, LECTURER, TEACHER</div>
+<div>
+	&nbsp;</div>
+<div>
+	Salary: double, &gt; 0</div>
+<div>
+	&nbsp;</div>
+<div>
+	Salary = -123.98 =&gt; isn&#39;t a valid salary</div>
+<div>
+	&nbsp;</div>
+<div>
+	&nbsp;</div>
+<div>
+	&nbsp;</div>
+</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="2">Manual</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="2"></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="2">Medium</td></tr>
+<tr><td colspan="3"></td></tr><tr><td > Name of the test method:</td><td  colspan = "2" ></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="2">mcir1896_Req01:  Lab02<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Keywords:</span><td colspan="2">&nbsp;None<br></td></tr>
+</table>
+</div>
+<a name="toc_tc16407"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="3">Test Case Prj234-62: BBT_ECP_nonvalid_1</th></tr>
+<tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="2">mcir1896</td></tr>
+<tr><td colspan="3"><span class="label">Summary:</span><br /><div>
+	Input data:</div>
+<div>
+	&nbsp;</div>
+<div>
+	Salariat:</div>
+<div>
+	&nbsp;</div>
+<div>
+	Name: &quot;Casian&quot;</div>
+<div>
+	&nbsp;</div>
+<div>
+	CNP: &quot;&quot;</div>
+<div>
+	&nbsp;</div>
+<div>
+	Didactic function: &quot;CONF&quot;</div>
+<div>
+	&nbsp;</div>
+<div>
+	Salary: 123.98</div>
+<div>
+	&nbsp;</div>
+<div>
+	Expected output: &quot;Failed to add employee&quot;</div>
+</td></tr><tr><td colspan="3"><span class="label">Preconditions:</span><br /><div>
+	Salariat:&nbsp;</div>
+<div>
+	&nbsp;</div>
+<div>
+	Name: string, not empty (only [a-zA-Z]), at least 3 charachters</div>
+<div>
+	&nbsp;</div>
+<div>
+	CNP: string, non-empty, VALID CNP check: https://ro.wikipedia.org/wiki/Cod_numeric_personal</div>
+<div>
+	&nbsp;</div>
+<div>
+	Didactic function: string, one of: CONF, ASSISTENT, LECTURER, TEACHER</div>
+<div>
+	&nbsp;</div>
+<div>
+	Salary: double, &gt; 0</div>
+<div>
+	&nbsp;</div>
+<div>
+	CNP = &quot;&quot; =&gt; empty string, invalid CNP</div>
+</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="2">Manual</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="2"></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="2">Medium</td></tr>
+<tr><td colspan="3"></td></tr><tr><td > Name of the test method:</td><td  colspan = "2" ></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="2">mcir1896_Req01:  Lab02<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Keywords:</span><td colspan="2">&nbsp;None<br></td></tr>
+</table>
+</div>
+<a name="toc_tc16414"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="3">Test Case Prj234-63: BBT_BVA_valid_1</th></tr>
+<tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="2">mcir1896</td></tr>
+<tr><td colspan="3"><span class="label">Summary:</span><br /><div>
+	Salariat:</div>
+<div>
+	&nbsp;</div>
+<div>
+	Name: &quot;Cas&quot;</div>
+<div>
+	&nbsp;</div>
+<div>
+	CNP: &quot;1961207015563&quot;</div>
+<div>
+	&nbsp;</div>
+<div>
+	Didactic function: &quot;CONF&quot;</div>
+<div>
+	&nbsp;</div>
+<div>
+	Salary: 123.98</div>
+<div>
+	&nbsp;</div>
+<div>
+	Expected output: &quot;Successfully added employee&quot;</div>
+</td></tr><tr><td colspan="3"><span class="label">Preconditions:</span><br /><div>
+	Salariat:&nbsp;</div>
+<div>
+	&nbsp;</div>
+<div>
+	Name: string, not empty (only [a-zA-Z]), at least 3 charachters</div>
+<div>
+	&nbsp;</div>
+<div>
+	CNP: string, non-empty, VALID CNP check: https://ro.wikipedia.org/wiki/Cod_numeric_personal</div>
+<div>
+	&nbsp;</div>
+<div>
+	Didactic function: string, one of: CONF, ASSISTENT, LECTURER, TEACHER</div>
+<div>
+	&nbsp;</div>
+<div>
+	Salary: double, &gt; 0</div>
+<div>
+	<br />
+	Name = &quot;Cas&quot; length = 3 and limit is minimum 3 =&gt; valid name&nbsp;</div>
+</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="2">Manual</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="2"></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="2">Medium</td></tr>
+<tr><td colspan="3"></td></tr><tr><td > Name of the test method:</td><td  colspan = "2" ></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="2">mcir1896_Req01:  Lab02<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Keywords:</span><td colspan="2">&nbsp;None<br></td></tr>
+</table>
+</div>
+
+</body>
+</html>
