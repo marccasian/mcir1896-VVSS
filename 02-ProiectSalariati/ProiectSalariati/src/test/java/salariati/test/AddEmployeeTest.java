@@ -116,7 +116,7 @@ public class AddEmployeeTest {
 		controller.addEmployee(newEmployee);
 		assertEquals(6, controller.getEmployeesList().size());
 
-		newEmployee.setSalary(-131231.0);
+		newEmployee.setSalary(-131200000000000000000000000000000000000000000000000000000000000000000000000031.0);
 		assertFalse(employeeValidator.isValid(newEmployee));
 		assertEquals(6, controller.getEmployeesList().size());
 		controller.addEmployee(newEmployee);

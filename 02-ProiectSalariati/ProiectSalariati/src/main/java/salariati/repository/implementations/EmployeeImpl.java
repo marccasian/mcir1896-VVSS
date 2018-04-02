@@ -21,8 +21,6 @@ public class EmployeeImpl implements EmployeeRepositoryInterface {
         this.employeeList = this.getEmployeeList();
     }
 
-
-
 	@Override
 	public boolean addEmployee(Employee employee) {
 		if( employeeValidator.isValid(employee) ) {
