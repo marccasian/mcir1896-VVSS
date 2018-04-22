@@ -53,8 +53,9 @@ public class EmployeeMock implements EmployeeRepositoryInterface {
 	}
 
 	@Override
-	public void modifyEmployeeDidacticFunction(DidacticFunction d, int i) {
+	public boolean modifyEmployeeDidacticFunction(DidacticFunction d, int i) {
 
-	}
+        return false;
+    }
 
 }

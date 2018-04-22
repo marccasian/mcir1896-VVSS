@@ -10,7 +10,7 @@ public interface EmployeeRepositoryInterface {
 	boolean addEmployee(Employee employee);
 	List<Employee> getEmployeeList();
 	List<Employee> getEmployeeByCriteria();
-	void modifyEmployeeDidacticFunction(DidacticFunction d, int i);
+	boolean modifyEmployeeDidacticFunction(DidacticFunction d, int i);
 
 }
 
