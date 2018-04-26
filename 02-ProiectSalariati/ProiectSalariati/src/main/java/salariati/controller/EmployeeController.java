@@ -34,8 +34,8 @@ public class EmployeeController {
 	public Boolean addEmployee(Employee employee) {
 		return  this.employeeRepository.addEmployee(employee);
 	}
-	public void modifyDidacticFunction(DidacticFunction d, int i) {
-		employeeRepository.modifyEmployeeDidacticFunction(d,i);
+	public boolean modifyDidacticFunction(DidacticFunction d, int i) {
+		return employeeRepository.modifyEmployeeDidacticFunction(d,i);
 	}
 	
 	public List<Employee> getEmployeesList() {

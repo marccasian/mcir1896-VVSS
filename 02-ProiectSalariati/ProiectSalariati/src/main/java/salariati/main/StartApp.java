@@ -68,7 +68,7 @@ public class StartApp {
 					String funct = bufferedReader.readLine();
 					DidacticFunction f;
 					f = get_did_fct(funct);
-                    employeeController.modifyDidacticFunction(f,nr);
+                    boolean status  = employeeController.modifyDidacticFunction(f,nr);
 				} catch (IOException e) {
 					e.printStackTrace();
 				} catch (EmployeeException e) {
