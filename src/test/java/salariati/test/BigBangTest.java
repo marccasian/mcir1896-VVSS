@@ -13,6 +13,7 @@ import salariati.validator.EmployeeValidator;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -49,9 +50,8 @@ public class BigBangTest {
             assertFalse(controller.getEmployeesList().isEmpty());
             assertEquals(6, controller.getEmployeesList().size());
         }
-
         @Test
-        public void testAddNewEmployee() {
+        public void addNewEmployee() {
             Employee newEmployee = new Employee("ValidLastName", "1910509055057", DidacticFunction.ASISTENT, 3000.0);
             assertTrue(employeeValidator.isValid(newEmployee));
             controller.addEmployee(newEmployee);
@@ -60,155 +60,35 @@ public class BigBangTest {
         }
 
         @Test
-        public void testAddNewEmployeeFail_InvalidName() {
-            Employee newEmployee = new Employee("", "1910509055057", DidacticFunction.ASISTENT, 3000.0);
-            assertFalse(employeeValidator.isValid(newEmployee));
-            assertEquals(6, controller.getEmployeesList().size());
-            controller.addEmployee(newEmployee);
-            assertEquals(6, controller.getEmployeesList().size());
+        public void modifyEmployeeSuccess() {
+            assertTrue(controller_real.modifyDidacticFunction(DidacticFunction.CONF,  0)==controller_real.modifyDidacticFunction(DidacticFunction.CONF,  0));
+        }
 
-            newEmployee.setLastName("ca");
-            assertFalse(employeeValidator.isValid(newEmployee));
-            assertEquals(6, controller.getEmployeesList().size());
-            controller.addEmployee(newEmployee);
-            assertEquals(6, controller.getEmployeesList().size());
+        public void modifyEmployee() {
+            controller_real.modifyDidacticFunction(DidacticFunction.LECTURER,  0);
+            assertTrue(controller_real.modifyDidacticFunction(DidacticFunction.LECTURER,  0) == controller_real.modifyDidacticFunction(DidacticFunction.LECTURER,  0));
         }
 
         @Test
-        public void testAddNewEmployeeFail_InvalidCNP() {
-            Employee newEmployee = new Employee("Casian", "", DidacticFunction.ASISTENT, 3000.0);
-            assertFalse(employeeValidator.isValid(newEmployee));
-            assertEquals(6, controller.getEmployeesList().size());
-            controller.addEmployee(newEmployee);
-            assertEquals(6, controller.getEmployeesList().size());
-
-            newEmployee.setCnp("sadasdas");
-            assertFalse(employeeValidator.isValid(newEmployee));
-            assertEquals(6, controller.getEmployeesList().size());
-            controller.addEmployee(newEmployee);
-            assertEquals(6, controller.getEmployeesList().size());
-
-
-            newEmployee.setCnp("1231212124432");
-            assertFalse(employeeValidator.isValid(newEmployee));
-            assertEquals(6, controller.getEmployeesList().size());
-            controller.addEmployee(newEmployee);
-            assertEquals(6, controller.getEmployeesList().size());
-
-            newEmployee.setCnp("123121212443");
-            assertFalse(employeeValidator.isValid(newEmployee));
-            assertEquals(6, controller.getEmployeesList().size());
-            controller.addEmployee(newEmployee);
-            assertEquals(6, controller.getEmployeesList().size());
-        }
-
-
-        @Test
-        public void testAddNewEmployeeFail_InvalidSalary() {
-            Employee newEmployee = new Employee("Casian", "1961207015563", DidacticFunction.CONF, 0.0);
-            assertFalse(employeeValidator.isValid(newEmployee));
-            assertEquals(6, controller.getEmployeesList().size());
-            controller.addEmployee(newEmployee);
-            assertEquals(6, controller.getEmployeesList().size());
-
-            newEmployee.setSalary(-0.1);
-            assertFalse(employeeValidator.isValid(newEmployee));
-            assertEquals(6, controller.getEmployeesList().size());
-            controller.addEmployee(newEmployee);
-            assertEquals(6, controller.getEmployeesList().size());
-
-            newEmployee.setSalary(-131200000000000000000000000000000000000000000000000000000000000000000000000031.0);
-            assertFalse(employeeValidator.isValid(newEmployee));
-            assertEquals(6, controller.getEmployeesList().size());
-            controller.addEmployee(newEmployee);
-            assertEquals(6, controller.getEmployeesList().size());
-        }
-
-
-        @Test
-        public void testRepositoryReal() {
-            assertTrue(controller_real.getEmployeesList().isEmpty());
-            assertEquals(0, controller_real.getEmployeesList().size());
+        public void sortEmployeeFail() {
+            List<Employee> list = controller_real.getEmployeesListOrdered();
+            double sal = -1.0;
+            for (Employee e: list){
+                assertTrue(sal <= e.getSalary());
+                sal = e.getSalary();
+            }
         }
 
         @Test
-        public void testAddNewEmployee_real() {
-            Employee newEmployee = new Employee("Casian", "1961207015563", DidacticFunction.ASISTENT, 3000.0);
-            assertTrue(employeeValidator.isValid(newEmployee));
-            assertEquals(0, controller_real.getEmployeesList().size());
-            controller_real.addEmployee(newEmployee);
-            assertEquals(1, controller_real.getEmployeesList().size());
-            assertTrue(newEmployee.equals(controller_real.getEmployeesList().get(controller_real.getEmployeesList().size() - 1)));
+        public void bigBangTest() {
+            addNewEmployee();
+            modifyEmployee();
+            sortEmployeeFail();
         }
 
         public void restore_real() {
             Employee newEmployee = new Employee("Casian", "1961207015563", DidacticFunction.ASISTENT, 3000.0);
             assertTrue(employeeValidator.isValid(newEmployee));
             controller_real.addEmployee(newEmployee);
-        }
-
-        @Test
-        public void testAddNewEmployeeFail_InvalidName_real() {
-            Employee newEmployee = new Employee("", "1910509055057", DidacticFunction.ASISTENT, 3000.0);
-            assertFalse(employeeValidator.isValid(newEmployee));
-            assertEquals(0, controller_real.getEmployeesList().size());
-            controller.addEmployee(newEmployee);
-            assertEquals(0, controller_real.getEmployeesList().size());
-
-            newEmployee.setLastName("ca");
-            assertFalse(employeeValidator.isValid(newEmployee));
-            assertEquals(0, controller_real.getEmployeesList().size());
-            controller.addEmployee(newEmployee);
-            assertEquals(0, controller_real.getEmployeesList().size());
-        }
-
-        @Test
-        public void testAddNewEmployeeFail_InvalidCNP_real() {
-            Employee newEmployee = new Employee("Casian", "", DidacticFunction.ASISTENT, 3000.0);
-            assertFalse(employeeValidator.isValid(newEmployee));
-            assertEquals(0, controller_real.getEmployeesList().size());
-            controller.addEmployee(newEmployee);
-            assertEquals(0, controller_real.getEmployeesList().size());
-
-            newEmployee.setCnp("sadasdas");
-            assertFalse(employeeValidator.isValid(newEmployee));
-            assertEquals(0, controller_real.getEmployeesList().size());
-            controller.addEmployee(newEmployee);
-            assertEquals(0, controller_real.getEmployeesList().size());
-
-
-            newEmployee.setCnp("1231212124432");
-            assertFalse(employeeValidator.isValid(newEmployee));
-            assertEquals(0, controller_real.getEmployeesList().size());
-            controller.addEmployee(newEmployee);
-            assertEquals(0, controller_real.getEmployeesList().size());
-
-            newEmployee.setCnp("123121212443");
-            assertFalse(employeeValidator.isValid(newEmployee));
-            assertEquals(0, controller_real.getEmployeesList().size());
-            controller.addEmployee(newEmployee);
-            assertEquals(0, controller_real.getEmployeesList().size());
-        }
-
-
-        @Test
-        public void testAddNewEmployeeFail_InvalidSalary_real() {
-            Employee newEmployee = new Employee("Casian", "1961207015563", DidacticFunction.CONF, 0.0);
-            assertFalse(employeeValidator.isValid(newEmployee));
-            assertEquals(0, controller_real.getEmployeesList().size());
-            controller.addEmployee(newEmployee);
-            assertEquals(0, controller_real.getEmployeesList().size());
-
-            newEmployee.setSalary(-0.1);
-            assertFalse(employeeValidator.isValid(newEmployee));
-            assertEquals(0, controller_real.getEmployeesList().size());
-            controller.addEmployee(newEmployee);
-            assertEquals(0, controller_real.getEmployeesList().size());
-
-            newEmployee.setSalary(-131231.0);
-            assertFalse(employeeValidator.isValid(newEmployee));
-            assertEquals(0, controller_real.getEmployeesList().size());
-            controller.addEmployee(newEmployee);
-            assertEquals(0, controller_real.getEmployeesList().size());
         }
     }

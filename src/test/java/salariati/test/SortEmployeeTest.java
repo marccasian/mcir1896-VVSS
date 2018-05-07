@@ -46,7 +46,12 @@ public class SortEmployeeTest {
 
         @Test
         public void testSortEmployeeFail() {
-            assertTrue(controller_real.getEmployeesListOrdered().isEmpty());
+            List<Employee> list = controller_real.getEmployeesListOrdered();
+            double sal = -1.0;
+            for (Employee e: list){
+                assertTrue(sal <= e.getSalary());
+                sal = e.getSalary();
+            }
         }
 
         @Test
